@@ -22,7 +22,7 @@ export const Toaster = () => {
                 insetInline={{ mdDown: "4" }}
             >
                 {(toast) => (
-                    <Toast.Root width={{ md: "sm" }}>
+                    <Toast.Root width={{ base: "xs", md: "sm" }}>
                         {toast.type === "loading" ? (
                             <Spinner
                                 size="sm"

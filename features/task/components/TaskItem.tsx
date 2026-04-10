@@ -59,8 +59,12 @@ export const TaskItem = ({ task }: { task: Task }) => {
             toaster.info({
                 description: "Task updated successfully",
             });
-            reset();
             router.refresh();
+            reset({
+                title: data.title,
+                description: data.description ?? "",
+                status: data.status,
+            });
         } catch {
             toaster.error({
                 description: "Failed to update task",
