@@ -1,24 +1,42 @@
 {
-  "name": "sdit-test-website",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
-  "dependencies": {
-    "next": "16.2.3",
-    "react": "19.2.4",
-    "react-dom": "19.2.4"
-  },
-  "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.3",
-    "typescript": "^5"
-  }
+    "dependencies": {
+        "@chakra-ui/react": "^3.34.0",
+        "@emotion/react": "^11.14.0",
+        "@hookform/resolvers": "^5.2.2",
+        "@prisma/adapter-pg": "^7.7.0",
+        "@prisma/client": "^7.7.0",
+        "axios": "^1.15.0",
+        "dotenv": "^17.4.1",
+        "next": "16.2.3",
+        "next-themes": "^0.4.6",
+        "pg": "^8.20.0",
+        "react": "19.2.4",
+        "react-dom": "19.2.4",
+        "react-hook-form": "^7.72.1",
+        "react-icons": "^5.6.0",
+        "valibot": "^1.3.1"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "@types/pg": "^8.20.0",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "eslint": "^9",
+        "eslint-config-next": "16.2.3",
+        "prettier": "^3.8.2",
+        "prisma": "^7.7.0",
+        "tsx": "^4.21.0",
+        "typescript": "^5"
+    },
+    "name": "sdit-test-website",
+    "private": true,
+    "scripts": {
+        "build": "next build --webpack",
+        "dev": "next dev --webpack",
+        "format": "prettier --write .",
+        "lint": "eslint",
+        "postinstall": "prisma generate",
+        "start": "next start"
+    },
+    "version": "0.1.0"
 }
