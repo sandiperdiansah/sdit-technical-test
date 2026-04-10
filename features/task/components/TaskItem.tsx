@@ -43,6 +43,7 @@ export const TaskItem = ({ task }: { task: Task }) => {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
+        reset,
     } = useForm<UpdateSchemaType>({
         resolver: valibotResolver(UpdateTaskSchema),
         defaultValues: {
@@ -58,6 +59,7 @@ export const TaskItem = ({ task }: { task: Task }) => {
             toaster.info({
                 description: "Task updated successfully",
             });
+            reset();
             router.refresh();
         } catch {
             toaster.error({
