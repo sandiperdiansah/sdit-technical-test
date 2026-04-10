@@ -3,8 +3,10 @@ import { TaskItem } from "@/features/task/components/TaskItem";
 import { findAllTask } from "@/features/task/services";
 import { Box, Text } from "@chakra-ui/react";
 
+export const dynamic = "force-dynamic";
+
 const Page = async () => {
-    const response = await findAllTask();
+    const tasks = await findAllTask();
 
     return (
         <Box
@@ -22,7 +24,7 @@ const Page = async () => {
             </Box>
 
             {/* list task */}
-            {response.data.length === 0 ? (
+            {tasks.data.length === 0 ? (
                 <Box
                     display="flex"
                     justifyContent="center"
@@ -32,7 +34,7 @@ const Page = async () => {
                     <Text>No tasks found</Text>
                 </Box>
             ) : (
-                response.data.map((task) => (
+                tasks.data.map((task) => (
                     <TaskItem
                         key={task.id}
                         task={task}

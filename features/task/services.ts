@@ -1,3 +1,4 @@
+import { axiosInstance } from "@/libs/axios";
 import { Task } from "@/prisma/generated/client";
 
 export const findAllTask = async (): Promise<{
@@ -6,10 +7,10 @@ export const findAllTask = async (): Promise<{
     data: Task[];
 }> => {
     try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/tasks`);
-        return response.json();
+        const response = await axiosInstance.get("/api/tasks");
+        return response.data;
     } catch (error) {
-        console.error(error);
+        console.error("error : ", error);
         throw new Error("Failed to fetch tasks");
     }
 };
